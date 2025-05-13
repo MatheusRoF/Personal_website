@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../Styles/index.module.css';
+import Button from '../components/button';
 
 export default function Home() {
   return (
@@ -10,14 +11,20 @@ export default function Home() {
         <div className={styles.content}>
           <h1 className={styles.title}>Pessoal Website</h1>
 
-          <nav>
-            <ul className="list-disc list-inside space-y-2">
-              <li><Link href="/sobre-mim" className="text-blue-600 hover:underline">Sobre mim</Link></li>
-              <li><Link href="/projetos" className="text-blue-600 hover:underline">Projetos</Link></li>
-              <li><Link href="/contatos" className="text-blue-600 hover:underline">Contatos</Link></li>
-              <li><Link href="/certificados" className="text-blue-600 hover:underline">Certificados</Link></li>
-            </ul>
-          </nav>
+          <div className="flex flex-wrap gap-4">
+        <Link href="/sobre-mim">
+          <Button label="Sobre mim" className="rounded-2xl bg-blue-500 hover:bg-blue-600" />
+        </Link>
+        <Link href="/projetos">
+          <Button label="Projetos" className="rounded-2xl bg-blue-500 hover:bg-blue-600" />
+        </Link>
+        <Link href="/contatos">
+          <Button label="Contatos" className="rounded-2xl bg-blue-500 hover:bg-blue-600" />
+        </Link>
+        <Link href="/certificados">
+          <Button label="Certificados" className="rounded-2xl bg-blue-500 hover:bg-blue-600" />
+        </Link>
+      </div>
 
           <section className={styles.section}>
             <h2>Olá! 👋</h2>
