@@ -1,34 +1,67 @@
-// pages/index.js
+import { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../Styles/index.module.css';
 import Button from '../components/button';
+import { generatePdf } from '../utils/generatePdf';
 
 export default function Home() {
+  const handleDownloadPdf = async () => {
+    if (typeof window !== 'undefined') {
+      const success = await generatePdf(document.body, 'curriculo-matheus.pdf');
+      
+      if (!success) {
+        alert('Ocorreu um erro ao gerar o PDF. Por favor, tente novamente.');
+      }
+    }
+  };
+
   return (
     <div className={styles.container}>
+      {/* Botão de Download */}
+      <button
+        onClick={handleDownloadPdf}
+        style={{
+          position: 'fixed',
+          top: '1rem',
+          right: '1rem',
+          padding: '0.5rem 1rem',
+          backgroundColor: '#2563eb',
+          color: 'white',
+          border: 'none',
+          borderRadius: '8px',
+          cursor: 'pointer',
+          zIndex: 1000
+        }}
+      >
+        Baixar PDF
+      </button>
+
       <div className={styles.layout}>
         <div className={styles.content}>
-          <h1 className={styles.title}>Pessoal Website</h1>
+          <h1 className={styles.title}>Matheus Rodrigues Ferreira</h1>
 
-          <div className="flex flex-wrap gap-4">
-        <Link href="/sobre-mim">
-          <Button label="Sobre mim" className="rounded-2xl bg-blue-500 hover:bg-blue-600" />
-        </Link>
-        <Link href="/projetos">
-          <Button label="Projetos" className="rounded-2xl bg-blue-500 hover:bg-blue-600" />
-        </Link>
-        <Link href="/contatos">
-          <Button label="Contatos" className="rounded-2xl bg-blue-500 hover:bg-blue-600" />
-        </Link>
-        <Link href="/certificados">
-          <Button label="Certificados" className="rounded-2xl bg-blue-500 hover:bg-blue-600" />
-        </Link>
-      </div>
+          <div className={styles.buttonGroup}>
+            <Link href="/sobre-mim" passHref legacyBehavior>
+              <Button label="Sobre mim" className="rounded-2xl bg-blue-500 hover:bg-blue-600" />
+            </Link>
+            <Link href="/projetos" passHref legacyBehavior>
+              <Button label="Projetos" className="rounded-2xl bg-blue-500 hover:bg-blue-600" />
+            </Link>
+            <Link href="/contatos" passHref legacyBehavior>
+              <Button label="Contatos" className="rounded-2xl bg-blue-500 hover:bg-blue-600" />
+            </Link>
+            <Link href="/certificados" passHref legacyBehavior>
+              <Button label="Certificados" className="rounded-2xl bg-blue-500 hover:bg-blue-600" />
+            </Link>
+            <Link href="/experiencias" passHref legacyBehavior>
+              <Button label="Experiências" className="rounded-2xl bg-blue-500 hover:bg-blue-600" />
+            </Link>
+          </div>
 
           <section className={styles.section}>
             <h2>Olá! 👋</h2>
-            <p><strong>Eu sou o Matheus Rodrigues Ferreira.</strong></p>
+            <p className={styles.highlight}>Eu sou o Matheus Rodrigues Ferreira.</p>
             <p><a href="mailto:mmatheus99@hotmail.com">mmatheus99@hotmail.com</a></p>
 
             <h3>Perfil Profissional</h3>
@@ -43,46 +76,58 @@ export default function Home() {
           </section>
 
           <section className={styles.section}>
-            <h3>Experiências</h3>
-            <p><strong>Estagiário de Transportes | Votorantim Cimentos</strong><br />
-              Maio 2022 – Setembro 2023</p>
-            <p>
-              Gerenciamento de frota de transporte de saída para região centro norte e nordeste abrangendo fábricas e centros de distribuição.
-              Negociação de fretes com motoristas e transportadoras para diversas rotas.
-              Desenvolvimento de planos de contingência para abastecimentos de clientes.
-              Elaboração de orçamentos com base nas influências externas do mercado sobre os preços de combustíveis.
-              Otimização de processos logísticos por meio de automações, reduzindo o tempo de execução de tarefas repetitivas.
-              Monitoramento da frota para garantir a eficiência operacional e apoio a gestão de transportes.
-              Criação de relatórios estratégicos no Excel para acompanhamento de indicadores de desempenho.
-              Utilização de SAP e Qlik para controle de fretes, análise de dados e gestão de pedidos.
+            <h3>Experiência Profissional</h3>
+            <p className={styles.highlight}>Estagiário de Transportes | Votorantim Cimentos</p>
+            <p className={styles.highlight}>Maio 2022 – Setembro 2023</p>
+            
+            <h4>Principais Responsabilidades:</h4>
+            <ul>
+              <li>Gerenciamento de frota de transporte para região centro norte e nordeste</li>
+              <li>Negociação de fretes com motoristas e transportadoras</li>
+              <li>Desenvolvimento de planos de contingência</li>
+              <li>Otimização de processos logísticos através de automações</li>
+              <li>Criação de relatórios estratégicos no Excel</li>
+            </ul>
 
-              Impacto e Resultados:
-              Implementação de nova métrica de precificação de fretes, resultando na redução nos custos logísticos de transporte. (Roteirização)
-              Implementação de Plano Safra para mitigar impactos sazonais na região Centro-Oeste, resultando na otimização da gestão de frotas e eficiência no escoamento da produção, assegurando continuidade operacional e excelência no atendimento aos clientes.
-              Redução do tempo de execução de atividades por meio de padronização e automações.
-              Otimização de alocação de recursos por meio da melhora da precisão da análise de custos de transportes.
-              Padronização de relatórios e análises facilitando a tomada de decisão.
-            </p>
+            <h4>Principais Conquistas:</h4>
+            <ul>
+              <li>Implementação de nova métrica de precificação de fretes, reduzindo custos</li>
+              <li>Otimização da gestão de frotas durante período sazonal</li>
+              <li>Redução do tempo de execução de atividades através de automações</li>
+            </ul>
           </section>
 
-          <footer className={styles.section}>
-            <h4>Contatos</h4>
+          <section className={styles.section}>
+            <h3>Contatos</h3>
             <ul>
-              <li><a href="https://www.linkedin.com/in/matheus-rodrigues-ferreira-06754617a/">LinkedIn</a></li>
-              <li><a href="https://wa.me/+5561982129045">WhatsApp</a></li>
-              <li><a href="https://github.com/MatheusRoF">GitHub</a></li>
+              <li>
+                <a href="https://www.linkedin.com/in/matheus-rodrigues-ferreira-06754617a/" target="_blank" rel="noopener noreferrer">
+                  LinkedIn
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/+5561982129045" target="_blank" rel="noopener noreferrer">
+                  WhatsApp
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/MatheusRoF" target="_blank" rel="noopener noreferrer">
+                  GitHub
+                </a>
+              </li>
             </ul>
-          </footer>
+          </section>
         </div>
 
-        <div>
+        <div className={styles.profileContainer}>
           <Image
             src="/profile.jpg"
             alt="Foto de Matheus"
-            width={240}
-            height={240}
+            width={400}  // Tamanho original maior para qualidade
+            height={400} // Proporção 1:1
             className={styles.profileImage}
             priority
+            quality={90} // Qualidade aumentada (padrão é 75)
           />
         </div>
       </div>

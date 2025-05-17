@@ -1,23 +1,50 @@
-// components/Button.js
 import React from 'react';
+import Link from 'next/link';
+import styles from '../Styles/button.module.css';
 
-const Button = ({ label, onClick, type = 'button', className = '', ...rest }) => {
+const Button = ({ 
+  label, 
+  onClick, 
+  type = 'button', 
+  className = '', 
+  variant = 'primary',
+  size = 'medium',
+  href,
+  passHref = true,
+  legacyBehavior = true,
+  ...rest 
+}) => {
+  // Classes baseadas nas props
+  const buttonClasses = `
+    ${styles.button}
+    ${styles[variant]}
+    ${styles[size]}
+    ${className}
+  `;
+
+  // Se tiver href, renderiza como Link
+  if (href) {
+    return (
+      <Link href={href} passHref={passHref} legacyBehavior={legacyBehavior}>
+        {legacyBehavior ? (
+          <a className={buttonClasses} {...rest}>
+            {label}
+          </a>
+        ) : (
+          <button type={type} className={buttonClasses} {...rest}>
+            {label}
+          </button>
+        )}
+      </Link>
+    );
+  }
+
+  // Caso contrário, renderiza como button normal
   return (
     <button
       type={type}
       onClick={onClick}
-      className={`
-        px-6 py-3 
-        text-lg font-medium 
-        bg-blue-600 
-        text-white 
-        rounded-2xl 
-        hover:bg-blue-700 
-        transition duration-200 
-        focus:outline-none 
-        focus:ring-2 focus:ring-blue-300 focus:ring-opacity-75 
-        ${className}
-      `}
+      className={buttonClasses}
       aria-label={label}
       {...rest}
     >

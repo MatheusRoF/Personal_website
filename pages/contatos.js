@@ -1,66 +1,101 @@
 import { Mail, Linkedin, Phone, Send, MessageSquare } from "lucide-react";
 import Link from "next/link";
+import styles from '../Styles/contatos.module.css';
 
 export default function Contatos() {
   return (
-    <div className="flex justify-center min-h-screen px-4 py-10 bg-black text-white">
-      <div className="max-w-4xl w-full flex flex-col md:flex-row gap-10">
-        {/* Seção esquerda: Mensagem */}
-        <div className="flex flex-col items-start space-y-4">
-          <div className="text-3xl font-bold flex items-center gap-2">
-            <MessageSquare className="text-pink-500" size={30} />
-            Vamos conversar!
-          </div>
-          <p className="text-gray-400">
-            Se você está interessado em trabalhar comigo, tem um projeto em mente, ou apenas quer dizer olá, por favor, não hesite em entrar em contato.
-          </p>
-          <div>
-            <p className="text-sm text-gray-300">✉️ matheus989@outlook.com</p>
-            <p className="text-sm text-gray-300">📞 +55 61 9 9212-8045</p>
-          </div>
-        </div>
+    <div className={styles.container}>
+      {/* Botão Voltar no mesmo estilo */}
+      <Link href="/" passHref>
+        <button
+          style={{
+            position: 'fixed',
+            top: '1rem',
+            left: '1rem',
+            padding: '0.5rem 1rem',
+            backgroundColor: '#2563eb',
+            color: 'white',
+            border: 'none',
+            borderRadius: '8px',
+            cursor: 'pointer',
+            zIndex: 1000,
+            textDecoration: 'none'
+          }}
+        >
+          ← Voltar
+        </button>
+      </Link>
 
-        {/* Seção direita: Botões de contato */}
-        <div className="w-full md:w-1/2">
-          <h2 className="text-xl font-semibold mb-4">Encontre-me aqui 👇</h2>
-          <div className="space-y-3">
+      <header className={styles.header}>
+        <h1>Meus Contatos</h1>
+      </header>
+
+      <main className={styles.main}>
+        <div className={styles.contactCard}>
+          <div className={styles.contactIntro}>
+            <h2>
+              <MessageSquare className={styles.contactLinkIcon} />
+              Vamos conversar!
+            </h2>
+            <p>
+              Se você está interessado em trabalhar comigo, tem um projeto em mente, ou apenas quer dizer olá, por favor, não hesite em entrar em contato.
+            </p>
+            
+            <div className={styles.contactInfo}>
+              <p>
+                <Mail className={styles.contactLinkIcon} />
+                matheus989@outlook.com
+              </p>
+              <p>
+                <Phone className={styles.contactLinkIcon} />
+                +55 61 9 9212-8045
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.contactLinks}>
+            <h3>Encontre-me aqui 👇</h3>
+            
             <Link
               href="mailto:matheus989@outlook.com"
-              className="flex items-center gap-3 bg-zinc-900 hover:bg-zinc-800 px-4 py-3 rounded-lg transition"
+              className={styles.contactLink}
             >
-              <Mail className="text-blue-400" size={20} />
-              Outlook
+              <Mail className={`${styles.contactLinkIcon} ${styles.email}`} />
+              <span>Outlook</span>
             </Link>
 
             <Link
-              href="https://www.linkedin.com/in/seu-perfil"
+              href="https://www.linkedin.com/in/matheus-rodrigues-ferreira-06754617a/"
               target="_blank"
-              className="flex items-center gap-3 bg-zinc-900 hover:bg-zinc-800 px-4 py-3 rounded-lg transition"
+              rel="noopener noreferrer"
+              className={styles.contactLink}
             >
-              <Linkedin className="text-blue-500" size={20} />
-              LinkedIn
+              <Linkedin className={`${styles.contactLinkIcon} ${styles.linkedin}`} />
+              <span>LinkedIn</span>
             </Link>
 
             <Link
               href="https://wa.me/5561992128045"
               target="_blank"
-              className="flex items-center gap-3 bg-zinc-900 hover:bg-zinc-800 px-4 py-3 rounded-lg transition"
+              rel="noopener noreferrer"
+              className={styles.contactLink}
             >
-              <Phone className="text-green-500" size={20} />
-              WhatsApp
+              <Phone className={`${styles.contactLinkIcon} ${styles.whatsapp}`} />
+              <span>WhatsApp</span>
             </Link>
 
             <Link
               href="https://t.me/seu_usuario"
               target="_blank"
-              className="flex items-center gap-3 bg-zinc-900 hover:bg-zinc-800 px-4 py-3 rounded-lg transition"
+              rel="noopener noreferrer"
+              className={styles.contactLink}
             >
-              <Send className="text-cyan-400" size={20} />
-              Telegram
+              <Send className={`${styles.contactLinkIcon} ${styles.telegram}`} />
+              <span>Telegram</span>
             </Link>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   );
 }

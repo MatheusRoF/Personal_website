@@ -1,39 +1,62 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import styles from '../Styles/sobre-mim.module.css';
 
 export default function SobreMim() {
   return (
-    <div className="flex justify-center min-h-screen px-4 py-10 bg-black text-white">
-      <div className="max-w-3xl w-full space-y-6">
-        <div className="text-center">
-          <Image
-            src="/profile.jpg"
-            alt="Foto de Matheus"
-            width={120}
-            height={120}
-            className="rounded-full mx-auto mb-4"
-          />
-          <h1 className="text-3xl font-bold">Sobre mim</h1>
-        </div>
+    <div className={styles.container}>
+      {/* Botão Voltar no mesmo estilo */}
+      <Link href="/" passHref>
+        <button
+          style={{
+            position: 'fixed',
+            top: '1rem',
+            left: '1rem',
+            padding: '0.5rem 1rem',
+            backgroundColor: '#2563eb',
+            color: 'white',
+            border: 'none',
+            borderRadius: '8px',
+            cursor: 'pointer',
+            zIndex: 1000,
+            textDecoration: 'none'
+          }}
+        >
+          ← Voltar
+        </button>
+      </Link>
 
-        <section>
-          <h2 className="text-blue-400 font-semibold text-xl">👋 Olá!</h2>
+      <header className={styles.header}>
+        {/* <Image
+          src="/profile.jpg"
+          alt="Foto de Matheus"
+          width={120}
+          height={120}
+          className={styles.profileImage}
+          priority
+        /> */}
+        <h1>Sobre Mim</h1>
+      </header>
+
+      <main className={styles.main}>
+        <section className={styles.section}>
+          <h2>👋 Olá!</h2>
           <p>
             Sou um profissional apaixonado por tecnologia e inovação, focado em criar soluções eficientes e acessíveis.
           </p>
         </section>
 
-        <section>
-          <h2 className="text-blue-400 font-semibold text-xl">🎓 Formação Acadêmica</h2>
-          <p><strong>Análise e Desenvolvimento de Sistemas – CEUB, 2023</strong></p>
+        <section className={styles.section}>
+          <h2>🎓 Formação Acadêmica</h2>
+          <p className={styles.highlight}>Análise e Desenvolvimento de Sistemas – CEUB, 2023</p>
           <p>
             Minha trajetória me proporcionou sólida base em lógica de programação, estrutura de dados, metodologias ágeis e desenvolvimento de software.
           </p>
         </section>
 
-        <section>
-          <h2 className="text-blue-400 font-semibold text-xl">🛠️ Habilidades Técnicas</h2>
-          <ul className="list-disc list-inside">
+        <section className={styles.section}>
+          <h2>🛠️ Habilidades Técnicas</h2>
+          <ul>
             <li>JavaScript, Java, Python</li>
             <li>MySQL, SQL Server, MongoDB</li>
             <li>React, Angular</li>
@@ -41,17 +64,13 @@ export default function SobreMim() {
           </ul>
         </section>
 
-        <section>
-          <h2 className="text-blue-400 font-semibold text-xl">🚀 Busco Aprendizado Contínuo</h2>
+        <section className={styles.section}>
+          <h2>🚀 Busco Aprendizado Contínuo</h2>
           <p>
             Estou em constante evolução para contribuir com soluções modernas e escaláveis, impactando positivamente os negócios e a sociedade.
           </p>
         </section>
-
-        <Link href="/" className="text-blue-500 hover:underline block mt-4">
-          ← Voltar para Home
-        </Link>
-      </div>
+      </main>
     </div>
   );
 }

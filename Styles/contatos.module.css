@@ -1,0 +1,109 @@
+/* Styles/contatos.module.css */
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #333;
+}
+
+.header {
+  margin-bottom: 3rem;
+  text-align: center;
+  padding-top: 4rem; /* Espaço para o botão fixo */
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: #000000;
+  margin-bottom: 1rem;
+}
+
+.main {
+  margin-top: 2rem;
+}
+
+.contactCard {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.contactIntro {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.contactIntro h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #111;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contactIntro p {
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.contactInfo p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #555;
+}
+
+.contactLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contactLink {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.contactLink:hover {
+  background-color: #e9ecef;
+  transform: translateY(-2px);
+}
+
+.contactLinkIcon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Cores específicas para cada tipo de contato */
+.email {
+  color: #0078d4; /* Azul Outlook */
+}
+.linkedin {
+  color: #0a66c2; /* Azul LinkedIn */
+}
+.whatsapp {
+  color: #25d366; /* Verde WhatsApp */
+}
+.telegram {
+  color: #0088cc; /* Azul Telegram */
+}
