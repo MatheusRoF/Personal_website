@@ -47,9 +47,21 @@ export default function Home() {
             <p><strong>Estagiário de Transportes | Votorantim Cimentos</strong><br />
               Maio 2022 – Setembro 2023</p>
             <p>
-              Responsável pela gestão de operações de transporte de produtos acabados, junto a seus fornecedores e público interno da empresa 
-              (Gerentes, Coordenadores, Supervisores, Gestão comercial), bem como pelo desenvolvimento de novos projetos e mudanças estratégicas 
-              na área e desenvolvimento de automações utilizando Python. Análise de base de dados de transportes com ferramentas de BI, SAP e VBA.
+              Gerenciamento de frota de transporte de saída para região centro norte e nordeste abrangendo fábricas e centros de distribuição.
+              Negociação de fretes com motoristas e transportadoras para diversas rotas.
+              Desenvolvimento de planos de contingência para abastecimentos de clientes.
+              Elaboração de orçamentos com base nas influências externas do mercado sobre os preços de combustíveis.
+              Otimização de processos logísticos por meio de automações, reduzindo o tempo de execução de tarefas repetitivas.
+              Monitoramento da frota para garantir a eficiência operacional e apoio a gestão de transportes.
+              Criação de relatórios estratégicos no Excel para acompanhamento de indicadores de desempenho.
+              Utilização de SAP e Qlik para controle de fretes, análise de dados e gestão de pedidos.
+
+              Impacto e Resultados:
+              Implementação de nova métrica de precificação de fretes, resultando na redução nos custos logísticos de transporte. (Roteirização)
+              Implementação de Plano Safra para mitigar impactos sazonais na região Centro-Oeste, resultando na otimização da gestão de frotas e eficiência no escoamento da produção, assegurando continuidade operacional e excelência no atendimento aos clientes.
+              Redução do tempo de execução de atividades por meio de padronização e automações.
+              Otimização de alocação de recursos por meio da melhora da precisão da análise de custos de transportes.
+              Padronização de relatórios e análises facilitando a tomada de decisão.
             </p>
           </section>
 
