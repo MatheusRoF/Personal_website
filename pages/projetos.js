@@ -64,6 +64,13 @@ export default function Projetos() {
 
       <div className={styles.projectsGrid}>
         <ProjectCard
+          title="Personal Website"
+          description="Web site com objetivo de demonstrar habilidades em desenvolvimento web e servir como curriculo e portfolio."
+          imageSrc="/projetos/skull-king.png"
+          githubUrl="https://github.com/MatheusRoF/Personal_website"
+          demoUrl=""   
+        />
+        <ProjectCard
           title="Skull King Score"
           description="Aplicativo Flutter para contagem de pontos do jogo Skull King, com apostas, bônus e controle automático por rodada."
           imageSrc="/projetos/skull-king.png"

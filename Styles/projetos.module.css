@@ -5,76 +5,107 @@
   margin: 0 auto;
   padding: 2rem;
   color: #333;
+  position: relative;
 }
 
 .header {
   margin-bottom: 3rem;
   text-align: center;
-  padding-top: 4rem; /* Espaço para o botão fixo */
+  padding-top: 5rem; /* Mais espaço para o botão fixo */
 }
 
 .header h1 {
   font-size: 2.5rem;
   color: #000;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
+}
+
+.header p.subtitle {
+  color: #666;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
 .projectsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: 2.5rem;
+  margin-top: 3rem;
 }
 
 .projectCard {
   background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-radius: 12px; /* Bordas mais arredondadas */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   overflow: hidden;
-  transition: transform 0.2s ease;
+  transition: all 0.3s ease;
+  border: 1px solid #eee; /* Borda sutil */
 }
 
 .projectCard:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-color: #2563eb; /* Borda azul no hover */
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 220px; /* Altura aumentada */
+  overflow: hidden;
 }
 
 .projectImage {
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.projectCard:hover .projectImage {
+  transform: scale(1.05); /* Efeito de zoom sutil */
 }
 
 .projectContent {
-  padding: 1.5rem;
+  padding: 1.75rem;
 }
 
 .projectTitle {
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
   color: #111;
+  font-weight: 600;
 }
 
 .projectDescription {
   color: #555;
-  margin-bottom: 1.5rem;
-  line-height: 1.5;
+  margin-bottom: 1.75rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
 }
 
 .projectLinks {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap; /* Para telas pequenas */
 }
 
 .projectLink {
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
   text-decoration: none;
   font-weight: 500;
-  transition: background-color 0.2s ease;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .githubLink {
@@ -84,6 +115,7 @@
 
 .githubLink:hover {
   background-color: #1d4ed8;
+  transform: translateY(-1px);
 }
 
 .demoLink {
@@ -94,4 +126,41 @@
 
 .demoLink:hover {
   background-color: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+/* Ícones SVG */
+.icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .header {
+    padding-top: 6rem;
+  }
+  
+  .projectsGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .projectContent {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1.5rem;
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .imageContainer {
+    height: 180px;
+  }
 }
