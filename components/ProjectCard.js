@@ -56,70 +56,200 @@
 
 // export default ProjectCard;
 
-import Link from 'next/link';
-import Image from 'next/image';
+// import Link from 'next/link';
+// import Image from 'next/image';
 
-const ProjectCard = ({ id, title, description, imageSrc, githubUrl, demoUrl }) => {
+// const ProjectCard = ({ id, title, description, imageSrc, githubUrl, demoUrl }) => {
+//   return (
+//     <div className="group relative">
+//       <Link href={`/projetos/${id}`} passHref legacyBehavior>
+//         <div className="cursor-pointer">
+//           <div className="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 group-hover:shadow-lg group-hover:transform group-hover:-translate-y-1 h-full flex flex-col">
+//             <div className="relative h-48">
+//               <Image
+//                 src={imageSrc}
+//                 alt={`Imagem do projeto ${title}`}
+//                 fill
+//                 className="transition-opacity duration-300 group-hover:opacity-90 object-cover"
+//                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+//                 priority={id === 'personal-website'} // Prioriza carregamento da imagem principal
+//               />
+//             </div>
+//             <div className="p-4 flex-grow">
+//               <h3 className="text-xl font-semibold text-gray-800 mb-2">{title}</h3>
+//               <p className="text-gray-600 mb-4 line-clamp-3">{description}</p>
+//             </div>
+//             <div className="px-4 pb-4 mt-auto">
+//               <div className="flex flex-wrap gap-2">
+//                 {githubUrl && (
+//                   <a 
+//                     href={githubUrl} 
+//                     onClick={(e) => e.stopPropagation()}
+//                     target="_blank" 
+//                     rel="noopener noreferrer"
+//                     className="text-sm bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded-md text-gray-700 transition-colors flex items-center gap-1"
+//                     aria-label={`Ver código no GitHub (${title})`}
+//                   >
+//                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+//                       <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+//                     </svg>
+//                     GitHub
+//                   </a>
+//                 )}
+//                 {demoUrl && (
+//                   <a 
+//                     href={demoUrl} 
+//                     onClick={(e) => e.stopPropagation()}
+//                     target="_blank" 
+//                     rel="noopener noreferrer"
+//                     className="text-sm bg-blue-100 hover:bg-blue-200 px-3 py-1 rounded-md text-blue-700 transition-colors flex items-center gap-1"
+//                     aria-label={`Ver demonstração (${title})`}
+//                   >
+//                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+//                       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+//                       <polyline points="15 3 21 3 21 9"></polyline>
+//                       <line x1="10" y1="14" x2="21" y2="3"></line>
+//                     </svg>
+//                     Demo
+//                   </a>
+//                 )}
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </Link>
+//     </div>
+//   );
+// };
+
+// export default ProjectCard;
+
+import { useState } from 'react';
+import Image from 'next/image';
+import styles from '../Styles/projetos.module.css';
+
+const ProjectCard = ({ 
+  title, 
+  description, 
+  imageSrc, 
+  githubUrl, 
+  demoUrl,
+  technologies, // Nova prop: array de tecnologias (ex: ["React", "Next.js"])
+  screenshots,  // Nova prop: array de URLs de screenshots adicionais
+  longDescription // Descrição detalhada para o modal
+}) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
-    <div className="group relative">
-      <Link href={`/projetos/${id}`} passHref legacyBehavior>
-        <div className="cursor-pointer">
-          <div className="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 group-hover:shadow-lg group-hover:transform group-hover:-translate-y-1 h-full flex flex-col">
-            <div className="relative h-48">
+    <>
+      {/* Card principal (clicável) */}
+      <div 
+        className={styles.projectCard}
+        onClick={() => setIsModalOpen(true)}
+        style={{ cursor: 'pointer' }}
+      >
+        <Image
+          src={imageSrc}
+          alt={title}
+          width={400}
+          height={200}
+          className={styles.projectImage}
+        />
+        <div className={styles.projectContent}>
+          <h3 className={styles.projectTitle}>{title}</h3>
+          <p className={styles.projectDescription}>
+            {description.substring(0, 100)}...
+          </p>
+          <div className={styles.technologies}>
+            {technologies?.slice(0, 3).map((tech, index) => (
+              <span key={index} className={styles.techTag}>
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Modal de detalhes */}
+      {isModalOpen && (
+        <div className={styles.modalOverlay} onClick={() => setIsModalOpen(false)}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <button 
+              className={styles.modalCloseButton}
+              onClick={() => setIsModalOpen(false)}
+            >
+              ×
+            </button>
+            
+            <h2 className={styles.modalTitle}>{title}</h2>
+            
+            <div className={styles.modalImageContainer}>
               <Image
                 src={imageSrc}
-                alt={`Imagem do projeto ${title}`}
-                fill
-                className="transition-opacity duration-300 group-hover:opacity-90 object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                priority={id === 'personal-website'} // Prioriza carregamento da imagem principal
+                alt={title}
+                width={800}
+                height={400}
+                className={styles.modalMainImage}
               />
             </div>
-            <div className="p-4 flex-grow">
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">{title}</h3>
-              <p className="text-gray-600 mb-4 line-clamp-3">{description}</p>
-            </div>
-            <div className="px-4 pb-4 mt-auto">
-              <div className="flex flex-wrap gap-2">
+
+            <div className={styles.modalBody}>
+              <h3>Descrição</h3>
+              <p className={styles.modalDescription}>{longDescription || description}</p>
+              
+              <h3>Tecnologias</h3>
+              <div className={styles.modalTechnologies}>
+                {technologies?.map((tech, index) => (
+                  <span key={index} className={styles.modalTechTag}>
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              {screenshots && screenshots.length > 0 && (
+                <>
+                  <h3>Screenshots</h3>
+                  <div className={styles.screenshotsGrid}>
+                    {screenshots.map((screenshot, index) => (
+                      <Image
+                        key={index}
+                        src={screenshot}
+                        alt={`${title} screenshot ${index + 1}`}
+                        width={300}
+                        height={150}
+                        className={styles.screenshotImage}
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
+
+              <div className={styles.modalLinks}>
                 {githubUrl && (
                   <a 
                     href={githubUrl} 
-                    onClick={(e) => e.stopPropagation()}
                     target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-sm bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded-md text-gray-700 transition-colors flex items-center gap-1"
-                    aria-label={`Ver código no GitHub (${title})`}
+                    rel="noopener noreferrer" 
+                    className={`${styles.projectLink} ${styles.githubLink}`}
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                    </svg>
-                    GitHub
+                    Ver no GitHub
                   </a>
                 )}
                 {demoUrl && (
                   <a 
                     href={demoUrl} 
-                    onClick={(e) => e.stopPropagation()}
                     target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-sm bg-blue-100 hover:bg-blue-200 px-3 py-1 rounded-md text-blue-700 transition-colors flex items-center gap-1"
-                    aria-label={`Ver demonstração (${title})`}
+                    rel="noopener noreferrer" 
+                    className={`${styles.projectLink} ${styles.demoLink}`}
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                      <polyline points="15 3 21 3 21 9"></polyline>
-                      <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                    Demo
+                    Acessar Demo
                   </a>
                 )}
               </div>
             </div>
           </div>
         </div>
-      </Link>
-    </div>
+      )}
+    </>
   );
 };
-
-export default ProjectCard;
