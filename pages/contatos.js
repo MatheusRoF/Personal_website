@@ -44,11 +44,11 @@ export default function Contatos() {
             <div className={styles.contactInfo}>
               <p>
                 <Mail className={styles.contactLinkIcon} />
-                matheus989@outlook.com
+                mmatheus99@hotmail.com
               </p>
               <p>
                 <Phone className={styles.contactLinkIcon} />
-                +55 61 9 9212-8045
+                +55 61 9 8212-9045
               </p>
             </div>
           </div>
@@ -57,7 +57,7 @@ export default function Contatos() {
             <h3>Encontre-me aqui 👇</h3>
             
             <Link
-              href="mailto:matheus989@outlook.com"
+              href="mailto:mmatheus99@hotmail.com"
               className={styles.contactLink}
             >
               <Mail className={`${styles.contactLinkIcon} ${styles.email}`} />
@@ -75,7 +75,7 @@ export default function Contatos() {
             </Link>
 
             <Link
-              href="https://wa.me/5561992128045"
+              href="https://wa.me/+5561982129045"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.contactLink}
@@ -85,7 +85,7 @@ export default function Contatos() {
             </Link>
 
             <Link
-              href="https://t.me/seu_usuario"
+              href="https://t.me/Matheus_rodi"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.contactLink}

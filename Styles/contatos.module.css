@@ -29,6 +29,7 @@
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   padding: 2rem;
   margin-bottom: 2rem;
+  border-color: #f8f9fa;
 }
 
 .contactIntro {
@@ -78,6 +79,7 @@
   gap: 1rem;
   padding: 1rem;
   background-color: #f8f9fa;
+  border-color: #f8f9fa;
   border-radius: 8px;
   color: #333;
   text-decoration: none;
@@ -87,6 +89,8 @@
 .contactLink:hover {
   background-color: #e9ecef;
   transform: translateY(-2px);
+  border: 1px solid #0a66c2;
+  box-shadow:0 2px 8px rgba(10, 102, 194, 0.1) ;
 }
 
 .contactLinkIcon {

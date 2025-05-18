@@ -215,7 +215,7 @@ export default function Projetos() {
           title="Personal Website"
           description="Website pessoal para demonstrar habilidades em desenvolvimento web."
           longDescription="Meu portfolio pessoal construído com Next.js, React e CSS Modules. O site apresenta seções sobre meus projetos, habilidades técnicas e informações de contato. Implementei animações suaves e otimização de performance para melhor experiência do usuário."
-          technologies={["Next.js", "React", "CSS Modules", "Vercel"]}
+          technologies={["Next.js | ", "React | ", "CSS Modules ","| Javascript | ", "Vercel | "]}
           screenshots={[
             "/projetos/site-screenshot1.png",
             "/projetos/site-screenshot2.png"
