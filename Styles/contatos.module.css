@@ -1,10 +1,9 @@
-/* Styles/contatos.module.css */
-
 .container {
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
   color: #333;
+  position: relative; /* Adicionado para melhor posicionamento */
 }
 
 .header {
@@ -26,10 +25,11 @@
 .contactCard {
   background: white;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 2rem;
   margin-bottom: 2rem;
-  border-color: #f8f9fa;
+  border: 1px solid #f8f9fa; /* Corrigido: propriedade border completa */
+  transition: all 0.2s ease; /* Adicionado para transição suave */
 }
 
 .contactIntro {
@@ -79,7 +79,7 @@
   gap: 1rem;
   padding: 1rem;
   background-color: #f8f9fa;
-  border-color: #f8f9fa;
+  border: 1px solid #f8f9fa; /* Corrigido: propriedade border completa */
   border-radius: 8px;
   color: #333;
   text-decoration: none;
@@ -90,7 +90,8 @@
   background-color: #e9ecef;
   transform: translateY(-2px);
   border: 1px solid #0a66c2;
-  box-shadow:0 2px 8px rgba(10, 102, 194, 0.1) ;
+  box-shadow: 0 2px 8px rgba(10, 102, 194, 0.1);
+  text-decoration: none; /* Corrigido: propriedade completa */
 }
 
 .contactLinkIcon {
@@ -110,4 +111,23 @@
 }
 .telegram {
   color: #0088cc; /* Azul Telegram */
+}
+
+/* Media queries para responsividade */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+  
+  .header {
+    padding-top: 3.5rem;
+  }
+  
+  .contactCard {
+    padding: 1.5rem;
+  }
+  
+  .contactIntro h2 {
+    font-size: 1.5rem;
+  }
 }

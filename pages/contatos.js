@@ -1,29 +1,14 @@
-import { Mail, Linkedin, Phone, Send, MessageSquare } from "lucide-react";
+import { Mail, Linkedin, Phone, Send, MessageSquare, Github } from "lucide-react";
 import Link from "next/link";
 import styles from '../Styles/contatos.module.css';
+import VoltarButton from '../components/button_return.js';
 
 export default function Contatos() {
   return (
     <div className={styles.container}>
-      {/* Botão Voltar no mesmo estilo */}
+      {/* Componente Botão Voltar */}
       <Link href="/" passHref>
-        <button
-          style={{
-            position: 'fixed',
-            top: '1rem',
-            left: '1rem',
-            padding: '0.5rem 1rem',
-            backgroundColor: '#2563eb',
-            color: 'white',
-            border: 'none',
-            borderRadius: '8px',
-            cursor: 'pointer',
-            zIndex: 1000,
-            textDecoration: 'none'
-          }}
-        >
-          ← Voltar
-        </button>
+        <VoltarButton />
       </Link>
 
       <header className={styles.header}>
@@ -57,42 +42,52 @@ export default function Contatos() {
             <h3>Encontre-me aqui 👇</h3>
             
             <Link
-              href="mailto:mmatheus99@hotmail.com"
-              className={styles.contactLink}
-            >
-              <Mail className={`${styles.contactLinkIcon} ${styles.email}`} />
-              <span>Outlook</span>
-            </Link>
+                href="mailto:mmatheus99@hotmail.com"
+                className={styles.contactLink}
+              >
+                <Mail className={`${styles.contactLinkIcon} ${styles.email}`} />
+                <span>Outlook</span>
+              </Link>
 
-            <Link
-              href="https://www.linkedin.com/in/matheus-rodrigues-ferreira-06754617a/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.contactLink}
-            >
-              <Linkedin className={`${styles.contactLinkIcon} ${styles.linkedin}`} />
-              <span>LinkedIn</span>
-            </Link>
+              <Link
+                href="https://www.linkedin.com/in/matheus-rodrigues-ferreira-06754617a/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.contactLink}
+              >
+                <Linkedin className={`${styles.contactLinkIcon} ${styles.linkedin}`} />
+                <span>LinkedIn</span>
+              </Link>
 
-            <Link
-              href="https://wa.me/+5561982129045"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.contactLink}
-            >
-              <Phone className={`${styles.contactLinkIcon} ${styles.whatsapp}`} />
-              <span>WhatsApp</span>
-            </Link>
+              <Link
+                href="https://wa.me/+5561982129045"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.contactLink}
+              >
+                <Phone className={`${styles.contactLinkIcon} ${styles.whatsapp}`} />
+                <span>WhatsApp</span>
+              </Link>
 
-            <Link
-              href="https://t.me/Matheus_rodi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.contactLink}
-            >
-              <Send className={`${styles.contactLinkIcon} ${styles.telegram}`} />
-              <span>Telegram</span>
-            </Link>
+              <Link
+                href="https://t.me/Matheus_rodi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.contactLink}
+              >
+                <Send className={`${styles.contactLinkIcon} ${styles.telegram}`} />
+                <span>Telegram</span>
+              </Link>
+
+              <Link
+                href="https://github.com/MatheusRoF"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.contactLink}
+              >
+                <Github className={`${styles.contactLinkIcon} ${styles.github}`} />
+                <span>GitHub</span>
+              </Link>
           </div>
         </div>
       </main>

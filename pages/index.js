@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Mail, Linkedin, Phone, Send, MessageSquare, Github } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../Styles/index.module.css';
@@ -9,7 +9,6 @@ export default function Home() {
   const handleDownloadPdf = async () => {
     if (typeof window !== 'undefined') {
       const success = await generatePdf(document.body, 'curriculo-matheus.pdf');
-      
       if (!success) {
         alert('Ocorreu um erro ao gerar o PDF. Por favor, tente novamente.');
       }
@@ -62,7 +61,6 @@ export default function Home() {
           <section className={styles.section}>
             <h2>Olá! 👋</h2>
             <p className={styles.highlight}>Eu sou o Matheus Rodrigues Ferreira.</p>
-            <p><a href="mailto:mmatheus99@hotmail.com">mmatheus99@hotmail.com</a></p>
 
             <h3>Perfil Profissional</h3>
             <p>
@@ -74,12 +72,12 @@ export default function Home() {
               Trabalhei com frameworks como React e Angular, utilizando ferramentas como Git e Visual Studio.
             </p>
           </section>
-
+          
           <section className={styles.section}>
             <h3>Experiência Profissional</h3>
             <p className={styles.highlight}>Estagiário de Transportes | Votorantim Cimentos</p>
             <p className={styles.highlight}>Maio 2022 – Setembro 2023</p>
-            
+
             <h4>Principais Responsabilidades:</h4>
             <ul>
               <li>Gerenciamento de frota de transporte para região centro norte e nordeste</li>
@@ -99,23 +97,55 @@ export default function Home() {
 
           <section className={styles.section}>
             <h3>Contatos</h3>
-            <ul>
-              <li>
-                <a href="https://www.linkedin.com/in/matheus-rodrigues-ferreira-06754617a/" target="_blank" rel="noopener noreferrer">
-                  LinkedIn
-                </a>
-              </li>
-              <li>
-                <a href="https://wa.me/+5561982129045" target="_blank" rel="noopener noreferrer">
-                  WhatsApp
-                </a>
-              </li>
-              <li>
-                <a href="https://github.com/MatheusRoF" target="_blank" rel="noopener noreferrer">
-                  GitHub
-                </a>
-              </li>
-            </ul>
+            <div className={styles.contactLinks}>
+              <Link
+                href="mailto:mmatheus99@hotmail.com"
+                className={styles.contactLink}
+              >
+                <Mail className={`${styles.contactLinkIcon} ${styles.email}`} />
+                <span>Outlook</span>
+              </Link>
+
+              <Link
+                href="https://www.linkedin.com/in/matheus-rodrigues-ferreira-06754617a/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.contactLink}
+              >
+                <Linkedin className={`${styles.contactLinkIcon} ${styles.linkedin}`} />
+                <span>LinkedIn</span>
+              </Link>
+
+              <Link
+                href="https://wa.me/+5561982129045"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.contactLink}
+              >
+                <Phone className={`${styles.contactLinkIcon} ${styles.whatsapp}`} />
+                <span>WhatsApp</span>
+              </Link>
+
+              <Link
+                href="https://t.me/Matheus_rodi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.contactLink}
+              >
+                <Send className={`${styles.contactLinkIcon} ${styles.telegram}`} />
+                <span>Telegram</span>
+              </Link>
+
+              <Link
+                href="https://github.com/MatheusRoF"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.contactLink}
+              >
+                <Github className={`${styles.contactLinkIcon} ${styles.github}`} />
+                <span>GitHub</span>
+              </Link>
+            </div>
           </section>
         </div>
 
@@ -123,11 +153,11 @@ export default function Home() {
           <Image
             src="/profile.jpg"
             alt="Foto de Matheus"
-            width={400}  // Tamanho original maior para qualidade
-            height={400} // Proporção 1:1
+            width={400}
+            height={400}
             className={styles.profileImage}
             priority
-            quality={90} // Qualidade aumentada (padrão é 75)
+            quality={100}
           />
         </div>
       </div>
