@@ -11,17 +11,15 @@ export default function Experiencias() {
     {
       id: 1,
       empresa: 'Desenvolvimento de Soluções Tecnológicas',
-      cargo: 'Desenvolvedor Freelancer | Automação e Análise de Dados',
+      cargo: 'Desenvolvedor Freelancer | Automação | Análise de Dados',
       periodo: 'Janeiro 2023 - Presente',
       descricao: [
-        'Desenvolvimento de scripts Python para automação de processos repetitivos em planilhas e sistemas ERP.',
-        'Criação de dashboards interativos (Next.js + Qlik/Power BI) para visualização de indicadores logísticos e financeiros.',
-        'Implementação de soluções RPA (Robotic Process Automation) para integração entre SAP e planilhas Excel.',
-        'Otimização de algoritmos de roteirização utilizando Python e bibliotecas de geolocalização.',
-        'Desenvolvimento de aplicações web personalizadas para gestão de fretes e controle logístico.',
-        'Migração de processos manuais para sistemas automatizados com Node.js e React.',
-        'Análise de grandes volumes de dados logísticos utilizando Pandas e NumPy para identificar oportunidades de redução de custos.',
-        'Configuração de pipelines ETL para consolidar dados de múltiplas fontes (SAP, Excel, APIs de transportadoras).'
+        'Desenvolvimento web com Next.js',
+        'Desenvolvimento mobile com Flutter',
+        'Criação de Chatbot',
+        'Desenvolvimento mobile com React Native',
+        'Desenvolvimento mobile com Angular',
+        'Desenvolvimento de scripts Python para automação de processos repetitivos e planilhas'
       ],
       conquistas: [
         'Automação de relatórios financeiros que reduziu o tempo de geração de 8h para 15min (Python + Pandas).',
@@ -50,7 +48,14 @@ export default function Experiencias() {
         'Otimização de processos logísticos por meio de automações, reduzindo o tempo de execução de tarefas repetitivas.',
         'Monitoramento da frota para garantir a eficiência operacional e apoio a gestão de transportes.',
         'Criação de relatórios estratégicos no Excel para acompanhamento de indicadores de desempenho.',
-        'Utilização de SAP e Qlik para controle de fretes, análise de dados e gestão de pedidos.'
+        'Utilização de SAP e Qlik para controle de fretes, análise de dados e gestão de pedidos.',
+        'Criação de dashboards interativos (Next.js + Qlik/Power BI) para visualização de indicadores logísticos e financeiros.',
+        'Implementação de soluções RPA (Robotic Process Automation) para integração entre SAP e planilhas Excel.',
+        'Otimização de algoritmos de roteirização utilizando Python e bibliotecas de geolocalização.',
+        'Desenvolvimento de aplicações web personalizadas para gestão de fretes e controle logístico.',
+        'Migração de processos manuais para sistemas automatizados com Node.js e React.',
+        'Análise de grandes volumes de dados logísticos utilizando Pandas e NumPy para identificar oportunidades de redução de custos.',
+        'Configuração de pipelines ETL para consolidar dados de múltiplas fontes (SAP, Excel, APIs de transportadoras).'
       ],
       conquistas: [
         'Implementação de nova métrica de precificação de fretes, resultando na redução nos custos logísticos de transporte. (Roteirização)',
