@@ -1,8 +1,8 @@
 const techIcons = {
-  "Next.js": { src: "/tech-icons/nextJS-Dark.svg" },
+  "Next.js": { src: "/tech-icons/NextJS-Dark.svg" },
   "React": { src: "/tech-icons/React-Dark.svg" },
   "CSS Modules": { src: "/tech-icons/CSS.svg" },
-  "Javascript": { src: "/tech-icons/javascript.svg" },
+  "Javascript": { src: "/tech-icons/JavaScript.svg" },
   "Vercel": { src: "/tech-icons/Vercel-Dark.svg" },
   "Flutter": { src: "/tech-icons/flutter.svg" },
   "Dart": { src: "/tech-icons/dart.svg" },

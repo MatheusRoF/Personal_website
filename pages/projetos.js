@@ -104,207 +104,242 @@ export default function Projetos() {
   };
 
   return (
-  <div className={styles.container}>
-    <VoltarButton />
+    <div className={styles.container}>
+      <VoltarButton />
 
-    <header className={styles.header}>
-      <h1>🧠 Projetos</h1>
-      <p className={styles.subtitle}>Clique em um projeto para ver detalhes</p>
-    </header>
+      <header className={styles.header}>
+        <h1>🧠 Projetos</h1>
+        <p className={styles.subtitle}>Clique em um projeto para ver detalhes</p>
+      </header>
 
-    {!selectedProject ? (
-      <main className={styles.main}>
-        {projetos.map((projeto) => (
-          <article 
-            key={projeto.id} 
-            className={styles.projectCard}
-            onClick={() => openDetail(projeto)}
-          >
-            <div className={styles.cardHeader}>
-              <h2>{projeto.title}</h2>
-              <div className={styles.cardMeta}>
-                <span className={styles.description}>{projeto.description}</span>
-              </div>
-            </div>
-            <div className={styles.cardPreview}>
-              <div className={styles.imageContainer}>
-                <Image
-                  src={projeto.imageSrc}
-                  alt={projeto.title}
-                  width={400}
-                  height={200}
-                  className={styles.projectImage}
-                />
-              </div>
-              <div className={styles.tags}>
-                {projeto.technologies.slice(0, 3).map((tech, index) => (
-                  <span key={index} className={styles.tag}>{tech}</span>
-                ))}
-              </div>
-            </div>
-          </article>
-        ))}
-      </main>
-    ) : (
-      <div className={styles.detailContainer}>
-        <div className={styles.detailHeader}>
-          <h2>{selectedProject.title}</h2>
-          <div className={styles.detailMeta}>
-            <button 
-              onClick={closeDetail} 
-              className={styles.closeButton}
-              aria-label="Fechar detalhes"
+      {!selectedProject ? (
+        <main className={styles.main}>
+          {projetos.map((projeto) => (
+            <article 
+              key={projeto.id} 
+              className={styles.projectCard}
+              onClick={() => openDetail(projeto)}
             >
-              &times;
-            </button>
-          </div>
-        </div>
-
-        <div className={styles.detailTabs}>
-          <button
-            className={`${styles.tabButton} ${activeTab === 'descricao' ? styles.active : ''}`}
-            onClick={() => setActiveTab('descricao')}
-          >
-            Descrição
-          </button>
-          <button
-            className={`${styles.tabButton} ${activeTab === 'tecnologias' ? styles.active : ''}`}
-            onClick={() => setActiveTab('tecnologias')}
-          >
-            Tecnologias
-          </button>
-          {selectedProject.features && selectedProject.features.length > 0 && (
-            <button
-              className={`${styles.tabButton} ${activeTab === 'features' ? styles.active : ''}`}
-              onClick={() => setActiveTab('features')}
-            >
-              Funcionalidades
-            </button>
-          )}
-          {selectedProject.screenshots && selectedProject.screenshots.length > 0 && (
-            <button
-              className={`${styles.tabButton} ${activeTab === 'screenshots' ? styles.active : ''}`}
-              onClick={() => setActiveTab('screenshots')}
-            >
-              Screenshots
-            </button>
-          )}
-        </div>
-
-        <div className={styles.detailContent}>
-          {activeTab === 'descricao' && (
-            <div className={styles.description}>
-              <p>{selectedProject.longDescription || selectedProject.description}</p>
-            </div>
-          )}
-
-          {activeTab === 'tecnologias' && (
-            <div className={styles.skillsContainer}>
-              <div className={styles.skillCategory}>
-                <h3>Tecnologias Utilizadas</h3>
-                <div className={styles.skillsGrid}>
-                  {selectedProject.technologies.map((tech, index) => {
-                    const iconPath = techIcons[tech]?.src || "/tech-icons/default.svg";
-                    return (
-                      <div key={index} className={styles.skillItem}>
-                        <div className={styles.techIconContainer}>
-                          <Image
-                            src={iconPath}
-                            alt={`${tech} icon`}
-                            width={24}
-                            height={24}
-                            className={styles.techIcon}
-                          />
-                        </div>
-                        <span className={styles.techName}>{tech}</span>
-                      </div>
-                    );
-                  })}
+              <div className={styles.cardHeader}>
+                <h2>{projeto.title}</h2>
+                <div className={styles.cardMeta}>
+                  <span className={styles.description}>{projeto.description}</span>
                 </div>
               </div>
-            </div>
-          )}
-
-          {activeTab === 'features' && (
-            <ul className={styles.detailList}>
-              {selectedProject.features.map((feature, index) => (
-                <li key={index}>
-                  <span className={styles.bullet}>•</span>
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          )}
-
-          {activeTab === 'screenshots' && (
-            <div className={styles.screenshotsGrid}>
-              {selectedProject.screenshots.map((screenshot, index) => (
-                <div 
-                  key={index} 
-                  className={styles.screenshotItem}
-                  onClick={() => openScreenshot(screenshot)}
-                >
+              <div className={styles.cardPreview}>
+                <div className={styles.imageContainer}>
                   <Image
-                    src={screenshot}
-                    alt={`${selectedProject.title} - Screenshot ${index + 1}`}
-                    width={600}
-                    height={400}
-                    className={styles.screenshotImage}
+                    src={projeto.imageSrc}
+                    alt={projeto.title}
+                    width={400}
+                    height={200}
+                    className={styles.projectImage}
                   />
                 </div>
-              ))}
+                <div className={styles.tags}>
+                  {projeto.technologies.slice(0, 3).map((tech, index) => (
+                    <span key={index} className={styles.tag}>{tech}</span>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
+        </main>
+      ) : (
+        <div className={styles.detailContainer}>
+          <div className={styles.detailHeader}>
+            <h2>{selectedProject.title}</h2>
+            <div className={styles.detailMeta}>
+              <button 
+                onClick={closeDetail} 
+                className={styles.closeButton}
+                aria-label="Fechar detalhes"
+              >
+                &times;
+              </button>
             </div>
-          )}
-        </div>
+          </div>
 
-        <div className={styles.detailFooter}>
-          {selectedProject.githubUrl && (
-            <Link 
-              href={selectedProject.githubUrl} 
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.actionButton}
+          <div className={styles.detailTabs}>
+            <button
+              className={`${styles.tabButton} ${activeTab === 'descricao' ? styles.active : ''}`}
+              onClick={() => setActiveTab('descricao')}
             >
-              Ver no GitHub
-            </Link>
-          )}
-          {selectedProject.demoUrl && (
-            <Link 
-              href={selectedProject.demoUrl} 
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.actionButton}
+              Descrição
+            </button>
+            <button
+              className={`${styles.tabButton} ${activeTab === 'tecnologias' ? styles.active : ''}`}
+              onClick={() => setActiveTab('tecnologias')}
             >
-              Ver Demonstração
-            </Link>
-          )}
-        </div>
-      </div>
-    )}
+              Tecnologias
+            </button>
+            {selectedProject.features && selectedProject.features.length > 0 && (
+              <button
+                className={`${styles.tabButton} ${activeTab === 'features' ? styles.active : ''}`}
+                onClick={() => setActiveTab('features')}
+              >
+                Funcionalidades
+              </button>
+            )}
+            {selectedProject.screenshots && selectedProject.screenshots.length > 0 && (
+              <button
+                className={`${styles.tabButton} ${activeTab === 'screenshots' ? styles.active : ''}`}
+                onClick={() => setActiveTab('screenshots')}
+              >
+                Screenshots
+              </button>
+            )}
+          </div>
 
-    {/* Modal para screenshot ampliada */}
-    {selectedScreenshot && (
-      <div className={styles.screenshotModal} onClick={closeScreenshot}>
-        <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-          <button 
-            className={styles.closeModalButton}
-            onClick={closeScreenshot}
-            aria-label="Fechar visualização"
-          >
-            &times;
-          </button>
-          <div className={styles.screenshotContainer}>
-            <Image
-              src={selectedScreenshot}
-              alt="Screenshot em tamanho ampliado"
-              width={1200}
-              height={800}
-              className={styles.enlargedScreenshot}
-            />
+          <div className={styles.detailContent}>
+            {activeTab === 'descricao' && (
+              <div className={styles.description}>
+                <p>{selectedProject.longDescription || selectedProject.description}</p>
+              </div>
+            )}
+
+            {activeTab === 'tecnologias' && (
+              <div className={styles.skillsContainer}>
+                <div className={styles.skillCategory}>
+                  <h3>Tecnologias Utilizadas</h3>
+                  <div className={styles.skillsGrid}>
+                    {selectedProject.technologies.map((tech, index) => {
+                      const iconPath = techIcons[tech]?.src || "/tech-icons/default.svg";
+                      return (
+                        <div key={index} className={styles.skillItem}>
+                          <div className={styles.techIconContainer}>
+                            <Image
+                              src={iconPath}
+                              alt={`${tech} icon`}
+                              width={24}
+                              height={24}
+                              className={styles.techIcon}
+                            />
+                          </div>
+                          <span className={styles.techName}>{tech}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'features' && (
+              <ul className={styles.detailList}>
+                {selectedProject.features.map((feature, index) => (
+                  <li key={index}>
+                    <span className={styles.bullet}>•</span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {activeTab === 'screenshots' && (
+              <div className={styles.screenshotsGrid}>
+                {selectedProject.screenshots.map((screenshot, index) => (
+                  <div 
+                    key={index} 
+                    className={styles.screenshotItem}
+                    onClick={() => openScreenshot(screenshot)}
+                  >
+                    <Image
+                      src={screenshot}
+                      alt={`${selectedProject.title} - Screenshot ${index + 1}`}
+                      width={600}
+                      height={400}
+                      className={styles.screenshotImage}
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div className={styles.detailFooter}>
+            {selectedProject.githubUrl && (
+              <Link 
+                href={selectedProject.githubUrl} 
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.actionButton}
+              >
+                Ver no GitHub
+              </Link>
+            )}
+            {selectedProject.demoUrl && (
+              <Link 
+                href={selectedProject.demoUrl} 
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.actionButton}
+              >
+                Ver Demonstração
+              </Link>
+            )}
           </div>
         </div>
-      </div>
-    )}
-  </div>
-);
+      )}
+
+      {/* Modal para screenshot ampliada */}
+      {selectedScreenshot && (
+        <div className={styles.screenshotModal} onClick={closeScreenshot}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <div className={styles.modalHeader}>
+              <button 
+                className={styles.closeModalButton}
+                onClick={closeScreenshot}
+                aria-label="Fechar visualização"
+              >
+                &times;
+              </button>
+            </div>
+            
+            <div className={styles.screenshotContainer}>
+              <Image
+                src={selectedScreenshot}
+                alt="Screenshot em tamanho ampliado"
+                width={1200}
+                height={800}
+                className={styles.enlargedScreenshot}
+              />
+            </div>
+            
+            <div className={styles.screenshotNavigation}>
+              <button 
+                className={styles.navButton}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  const currentIndex = selectedProject.screenshots.indexOf(selectedScreenshot);
+                  const prevIndex = (currentIndex - 1 + selectedProject.screenshots.length) % selectedProject.screenshots.length;
+                  setSelectedScreenshot(selectedProject.screenshots[prevIndex]);
+                }}
+                aria-label="Screenshot anterior"
+              >
+                &lt;
+              </button>
+              
+              <span className={styles.screenshotCounter}>
+                {selectedProject.screenshots.indexOf(selectedScreenshot) + 1} / {selectedProject.screenshots.length}
+              </span>
+              
+              <button 
+                className={styles.navButton}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  const currentIndex = selectedProject.screenshots.indexOf(selectedScreenshot);
+                  const nextIndex = (currentIndex + 1) % selectedProject.screenshots.length;
+                  setSelectedScreenshot(selectedProject.screenshots[nextIndex]);
+                }}
+                aria-label="Próxima screenshot"
+              >
+                &gt;
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 }

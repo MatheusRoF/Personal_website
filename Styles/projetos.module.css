@@ -436,3 +436,72 @@
   max-height: 80vh;
   border-radius: 8px;
 }
+
+.modalHeader {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+}
+
+.closeModalButton {
+  background: rgba(0, 0, 0, 0.400);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.closeModalButton:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.screenshotNavigation {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  z-index: 10;
+}
+
+.navButton {
+  background: rgba(0, 0, 0, 0.400);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.navButton:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.screenshotCounter {
+  color: white;
+  background: rgba(0, 0, 0, 0.400);
+  padding: 1px 5px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.screenshotCounter:hover {
+  background:rgba(0, 0, 0, 0.9);
+}
