@@ -110,7 +110,7 @@ export default function Experiencias() {
       <VoltarButton />
 
       <header className={styles.header}>
-        <h1>Minhas Experiências Profissionais</h1>
+        <h1>💼 Experiências Profissionais</h1>
         <p className={styles.subtitle}>Clique em uma experiência para ver detalhes</p>
       </header>
 
@@ -245,9 +245,9 @@ export default function Experiencias() {
           <div className={styles.detailFooter}>
             <Link href="/projetos" className={styles.actionButton}>
               <i className={`${styles.icon} ${styles.projectsIcon}`}></i>
-              Ver Projetos Relacionados
+              Ver Projetos
             </Link>
-            <Link href="/contato" className={styles.actionButton}>
+            <Link href="/contatos" className={styles.actionButton}>
               <i className={`${styles.icon} ${styles.contactIcon}`}></i>
               Entrar em Contato
             </Link>

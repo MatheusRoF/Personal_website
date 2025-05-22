@@ -3,17 +3,19 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../Styles/projetos.module.css';
 import VoltarButton from '../components/button_return';
+import techIcons from '../components/techIcons';
 
 export default function Projetos() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [activeTab, setActiveTab] = useState('descricao');
+  const [selectedScreenshot, setSelectedScreenshot] = useState(null);
 
   const projetos = [
     {
       id: 1,
       title: "Personal Website",
-      description: "Website pessoal para demonstrar habilidades em desenvolvimento web.",
-      longDescription: "Meu portfolio pessoal construído com Next.js, React e CSS Modules. O site apresenta seções sobre meus projetos, habilidades técnicas e informações de contato. Implementei animações suaves e otimização de performance para melhor experiência do usuário.",
+      description: "Portfólio profissional desenvolvido com Next.js e React, apresentando minha trajetória, projetos e habilidades técnicas. Implementa design responsivo, animações CSS, integração com API do GitHub e otimizações de performance. Demonstra domínio completo do fluxo de desenvolvimento front-end, desde a concepção até o deploy automatizado na Vercel.",
+      longDescription: "Meu portfólio profissional é uma aplicação web moderna e responsiva, desenvolvida para destacar minhas habilidades em desenvolvimento front-end e UI/UX design. O projeto foi construído com Next.js e React, garantindo performance otimizada, SEO eficiente e uma experiência de usuário fluida.Utilizando a arquitetura de renderização híbrida do Next.js (SSR e SSG), o site oferece tempos de carregamento rápidos e melhor indexação por motores de busca. O React, com seus hooks funcionais, permite um gerenciamento de estado eficiente e um código mais limpo e organizado.Para a estilização, adotei CSS Modules, assegurando que os estilos sejam escopados e modulares, evitando conflitos e facilitando a manutenção. O design é totalmente responsivo, adaptando-se a diferentes dispositivos e tamanhos de tela, com atenção especial à acessibilidade e às melhores práticas de UI/UX.Este projeto reflete meu compromisso com código limpo, performance e design intuitivo, servindo como uma vitrine do meu trabalho e um exemplo do que posso entregar em futuros projetos.",
       technologies: ["Next.js", "React", "CSS Modules", "Javascript", "Vercel"],
       features: [
         "Design responsivo para todos os dispositivos",
@@ -23,7 +25,10 @@ export default function Projetos() {
       ],
       screenshots: [
         "/projetos/site-screenshot1.png",
-        "/projetos/site-screenshot2.png"
+        "/projetos/site-screenshot2.png",
+        "/projetos/site-screenshot3.png",
+        "/projetos/site-screenshot4.png",
+        "/projetos/site-screenshot5.png"
       ],
       imageSrc: "/projetos/site-preview.png",
       githubUrl: "https://github.com/MatheusRoF/Personal_website"
@@ -90,168 +95,216 @@ export default function Projetos() {
     setSelectedProject(null);
   };
 
+  const openScreenshot = (screenshot) => {
+    setSelectedScreenshot(screenshot);
+  };
+
+  const closeScreenshot = () => {
+    setSelectedScreenshot(null);
+  };
+
   return (
-    <div className={styles.container}>
-      <VoltarButton />
+  <div className={styles.container}>
+    <VoltarButton />
 
-      <header className={styles.header}>
-        <h1>🧠 Projetos</h1>
-        <p className={styles.subtitle}>Clique em um projeto para ver detalhes</p>
-      </header>
+    <header className={styles.header}>
+      <h1>🧠 Projetos</h1>
+      <p className={styles.subtitle}>Clique em um projeto para ver detalhes</p>
+    </header>
 
-      {!selectedProject ? (
-        <main className={styles.main}>
-          {projetos.map((projeto) => (
-            <article 
-              key={projeto.id} 
-              className={styles.projectCard}
-              onClick={() => openDetail(projeto)}
-            >
-              <div className={styles.cardHeader}>
-                <h2>{projeto.title}</h2>
-                <div className={styles.cardMeta}>
-                  <span className={styles.description}>{projeto.description}</span>
-                </div>
+    {!selectedProject ? (
+      <main className={styles.main}>
+        {projetos.map((projeto) => (
+          <article 
+            key={projeto.id} 
+            className={styles.projectCard}
+            onClick={() => openDetail(projeto)}
+          >
+            <div className={styles.cardHeader}>
+              <h2>{projeto.title}</h2>
+              <div className={styles.cardMeta}>
+                <span className={styles.description}>{projeto.description}</span>
               </div>
-              <div className={styles.cardPreview}>
-                <div className={styles.imageContainer}>
-                  <Image
-                    src={projeto.imageSrc}
-                    alt={projeto.title}
-                    width={400}
-                    height={200}
-                    className={styles.projectImage}
-                  />
-                </div>
-                <div className={styles.tags}>
-                  {projeto.technologies.slice(0, 3).map((tech, index) => (
-                    <span key={index} className={styles.tag}>{tech}</span>
-                  ))}
-                </div>
-              </div>
-            </article>
-          ))}
-        </main>
-      ) : (
-        <div className={styles.detailContainer}>
-          <div className={styles.detailHeader}>
-            <h2>{selectedProject.title}</h2>
-            <div className={styles.detailMeta}>
-              <button 
-                onClick={closeDetail} 
-                className={styles.closeButton}
-                aria-label="Fechar detalhes"
-              >
-                &times;
-              </button>
             </div>
-          </div>
-
-          <div className={styles.detailTabs}>
-            <button
-              className={`${styles.tabButton} ${activeTab === 'descricao' ? styles.active : ''}`}
-              onClick={() => setActiveTab('descricao')}
-            >
-              Descrição
-            </button>
-            <button
-              className={`${styles.tabButton} ${activeTab === 'tecnologias' ? styles.active : ''}`}
-              onClick={() => setActiveTab('tecnologias')}
-            >
-              Tecnologias
-            </button>
-            {selectedProject.features && selectedProject.features.length > 0 && (
-              <button
-                className={`${styles.tabButton} ${activeTab === 'features' ? styles.active : ''}`}
-                onClick={() => setActiveTab('features')}
-              >
-                Funcionalidades
-              </button>
-            )}
-            {selectedProject.screenshots && selectedProject.screenshots.length > 0 && (
-              <button
-                className={`${styles.tabButton} ${activeTab === 'screenshots' ? styles.active : ''}`}
-                onClick={() => setActiveTab('screenshots')}
-              >
-                Screenshots
-              </button>
-            )}
-          </div>
-
-          <div className={styles.detailContent}>
-            {activeTab === 'descricao' && (
-              <div className={styles.description}>
-                <p>{selectedProject.longDescription || selectedProject.description}</p>
+            <div className={styles.cardPreview}>
+              <div className={styles.imageContainer}>
+                <Image
+                  src={projeto.imageSrc}
+                  alt={projeto.title}
+                  width={400}
+                  height={200}
+                  className={styles.projectImage}
+                />
               </div>
-            )}
-
-            {activeTab === 'tecnologias' && (
-              <div className={styles.skillsContainer}>
-                <div className={styles.skillCategory}>
-                  <h3>Tecnologias Utilizadas</h3>
-                  <div className={styles.skillsGrid}>
-                    {selectedProject.technologies.map((tech, index) => (
-                      <div key={index} className={styles.skillItem}>
-                        {tech}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {activeTab === 'features' && (
-              <ul className={styles.detailList}>
-                {selectedProject.features.map((feature, index) => (
-                  <li key={index}>
-                    <span className={styles.bullet}>•</span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            )}
-
-            {activeTab === 'screenshots' && (
-              <div className={styles.screenshotsGrid}>
-                {selectedProject.screenshots.map((screenshot, index) => (
-                  <div key={index} className={styles.screenshotItem}>
-                    <Image
-                      src={screenshot}
-                      alt={`${selectedProject.title} - Screenshot ${index + 1}`}
-                      width={600}
-                      height={400}
-                      className={styles.screenshotImage}
-                    />
-                  </div>
+              <div className={styles.tags}>
+                {projeto.technologies.slice(0, 3).map((tech, index) => (
+                  <span key={index} className={styles.tag}>{tech}</span>
                 ))}
               </div>
-            )}
-          </div>
-
-          <div className={styles.detailFooter}>
-            {selectedProject.githubUrl && (
-              <Link 
-                href={selectedProject.githubUrl} 
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.actionButton}
-              >
-                Ver no GitHub
-              </Link>
-            )}
-            {selectedProject.demoUrl && (
-              <Link 
-                href={selectedProject.demoUrl} 
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.actionButton}
-              >
-                Ver Demonstração
-              </Link>
-            )}
+            </div>
+          </article>
+        ))}
+      </main>
+    ) : (
+      <div className={styles.detailContainer}>
+        <div className={styles.detailHeader}>
+          <h2>{selectedProject.title}</h2>
+          <div className={styles.detailMeta}>
+            <button 
+              onClick={closeDetail} 
+              className={styles.closeButton}
+              aria-label="Fechar detalhes"
+            >
+              &times;
+            </button>
           </div>
         </div>
-      )}
-    </div>
-  );
+
+        <div className={styles.detailTabs}>
+          <button
+            className={`${styles.tabButton} ${activeTab === 'descricao' ? styles.active : ''}`}
+            onClick={() => setActiveTab('descricao')}
+          >
+            Descrição
+          </button>
+          <button
+            className={`${styles.tabButton} ${activeTab === 'tecnologias' ? styles.active : ''}`}
+            onClick={() => setActiveTab('tecnologias')}
+          >
+            Tecnologias
+          </button>
+          {selectedProject.features && selectedProject.features.length > 0 && (
+            <button
+              className={`${styles.tabButton} ${activeTab === 'features' ? styles.active : ''}`}
+              onClick={() => setActiveTab('features')}
+            >
+              Funcionalidades
+            </button>
+          )}
+          {selectedProject.screenshots && selectedProject.screenshots.length > 0 && (
+            <button
+              className={`${styles.tabButton} ${activeTab === 'screenshots' ? styles.active : ''}`}
+              onClick={() => setActiveTab('screenshots')}
+            >
+              Screenshots
+            </button>
+          )}
+        </div>
+
+        <div className={styles.detailContent}>
+          {activeTab === 'descricao' && (
+            <div className={styles.description}>
+              <p>{selectedProject.longDescription || selectedProject.description}</p>
+            </div>
+          )}
+
+          {activeTab === 'tecnologias' && (
+            <div className={styles.skillsContainer}>
+              <div className={styles.skillCategory}>
+                <h3>Tecnologias Utilizadas</h3>
+                <div className={styles.skillsGrid}>
+                  {selectedProject.technologies.map((tech, index) => {
+                    const iconPath = techIcons[tech]?.src || "/tech-icons/default.svg";
+                    return (
+                      <div key={index} className={styles.skillItem}>
+                        <div className={styles.techIconContainer}>
+                          <Image
+                            src={iconPath}
+                            alt={`${tech} icon`}
+                            width={24}
+                            height={24}
+                            className={styles.techIcon}
+                          />
+                        </div>
+                        <span className={styles.techName}>{tech}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'features' && (
+            <ul className={styles.detailList}>
+              {selectedProject.features.map((feature, index) => (
+                <li key={index}>
+                  <span className={styles.bullet}>•</span>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {activeTab === 'screenshots' && (
+            <div className={styles.screenshotsGrid}>
+              {selectedProject.screenshots.map((screenshot, index) => (
+                <div 
+                  key={index} 
+                  className={styles.screenshotItem}
+                  onClick={() => openScreenshot(screenshot)}
+                >
+                  <Image
+                    src={screenshot}
+                    alt={`${selectedProject.title} - Screenshot ${index + 1}`}
+                    width={600}
+                    height={400}
+                    className={styles.screenshotImage}
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div className={styles.detailFooter}>
+          {selectedProject.githubUrl && (
+            <Link 
+              href={selectedProject.githubUrl} 
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.actionButton}
+            >
+              Ver no GitHub
+            </Link>
+          )}
+          {selectedProject.demoUrl && (
+            <Link 
+              href={selectedProject.demoUrl} 
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.actionButton}
+            >
+              Ver Demonstração
+            </Link>
+          )}
+        </div>
+      </div>
+    )}
+
+    {/* Modal para screenshot ampliada */}
+    {selectedScreenshot && (
+      <div className={styles.screenshotModal} onClick={closeScreenshot}>
+        <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+          <button 
+            className={styles.closeModalButton}
+            onClick={closeScreenshot}
+            aria-label="Fechar visualização"
+          >
+            &times;
+          </button>
+          <div className={styles.screenshotContainer}>
+            <Image
+              src={selectedScreenshot}
+              alt="Screenshot em tamanho ampliado"
+              width={1200}
+              height={800}
+              className={styles.enlargedScreenshot}
+            />
+          </div>
+        </div>
+      </div>
+    )}
+  </div>
+);
 }

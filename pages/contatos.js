@@ -12,7 +12,7 @@ export default function Contatos() {
       </Link>
 
       <header className={styles.header}>
-        <h1>Meus Contatos</h1>
+        <h1>📇 Meus Contatos</h1>
       </header>
 
       <main className={styles.main}>

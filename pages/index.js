@@ -44,18 +44,19 @@ export default function Home() {
             <Link href="/sobre-mim" passHref legacyBehavior>
               <Button label="Sobre mim" className="rounded-2xl bg-blue-500 hover:bg-blue-600" />
             </Link>
-            <Link href="/projetos" passHref legacyBehavior>
-              <Button label="Projetos" className="rounded-2xl bg-blue-500 hover:bg-blue-600" />
-            </Link>
             <Link href="/contatos" passHref legacyBehavior>
               <Button label="Contatos" className="rounded-2xl bg-blue-500 hover:bg-blue-600" />
             </Link>
-            <Link href="/certificados" passHref legacyBehavior>
-              <Button label="Certificados" className="rounded-2xl bg-blue-500 hover:bg-blue-600" />
+            <Link href="/projetos" passHref legacyBehavior>
+              <Button label="Projetos" className="rounded-2xl bg-blue-500 hover:bg-blue-600" />
             </Link>
             <Link href="/experiencias" passHref legacyBehavior>
               <Button label="Experiências" className="rounded-2xl bg-blue-500 hover:bg-blue-600" />
             </Link>
+            <Link href="/certificados" passHref legacyBehavior>
+              <Button label="Certificados" className="rounded-2xl bg-blue-500 hover:bg-blue-600" />
+            </Link>
+            
           </div>
 
           <section className={styles.section}>
