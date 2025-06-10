@@ -11,29 +11,49 @@ export default function Experiencias() {
     {
       id: 1,
       empresa: 'Desenvolvimento de Soluções Tecnológicas',
-      cargo: 'Desenvolvedor Freelancer | Automação | Análise de Dados',
+      cargo: 'Desenvolvedor Freelancer | Automação | Desenvolvimento web | Desenvolvimento mobile',
       periodo: 'Janeiro 2023 - Presente',
       descricao: [
+        'Desenvolvimento abrangendo soluções web (Next.js, Angular), mobile (Flutter, React Native) e automações com Python. Criação de sistemas completos, responsivo e eficiente, incluindo também desenvolvimento de chatbots e automação de processos empresariais para otimização de workflows.',
         'Desenvolvimento web com Next.js',
         'Desenvolvimento mobile com Flutter',
         'Criação de Chatbot',
         'Desenvolvimento mobile com React Native',
-        'Desenvolvimento mobile com Angular',
+        'Desenvolvimento web com Angular',
         'Desenvolvimento de scripts Python para automação de processos repetitivos e planilhas'
       ],
       conquistas: [
-        'Automação de relatórios financeiros que reduziu o tempo de geração de 8h para 15min (Python + Pandas).',
-        'Desenvolvimento de algoritmo de precificação dinâmica de fretes que reduziu custos em 12% para 3 clientes do setor logístico.',
-        'Criação de sistema de monitoramento de frota em tempo real com integração a APIs de rastreamento (Next.js + Node.js).',
-        'Implementação de solução de backup automatizado para 15+ clientes, reduzindo perda de dados em 90%.',
-        'Migração bem-sucedida de 50+ sistemas legados para ambiente moderno com React e Firebase.',
-        'Desenvolvimento de pacote de automações para Excel que se tornou produto recorrente entre clientes do setor financeiro.'
-      ],
+        "Entrega de 5 projetos de desenvolvimento web e mobile, utilizando tecnologias como Next.js, Angular, Flutter e React Native, com foco na criação de soluções personalizadas e de alto impacto.",
+        "Desenvolvi e implementei soluções de automação com Python.",
+        "Criação de chatbots interativos, resultando na otimização de processos de negócios e na melhoria da eficiência operacional.",
+        "Gerenciei projetos freelancer de ponta a ponta, desde a coleta de requisitos e prototipação até a implantação e manutenção."
+        ],
       habilidades: {
-        tecnologias: ['Python (Pandas, NumPy)', 'JavaScript (React, Next.js)', 'Node.js', 'SQL'],
-        ferramentas: ['SAP', 'Qlik/Power BI', 'Excel Avançado', 'Git'],
-        competencias: ['Análise de Dados', 'Automação de Processos', 'Gestão Logística', 'Resolução de Problemas']
-      }
+        tecnologias: [
+        'JavaScript (Next.js, React, Angular, Node.js)',
+        'Python',
+        'Dart (Flutter)',
+        'React Native',
+        'SQL', // Ajuste o nível conforme sua experiência
+        'HTML5',
+        'CSS3',
+        'Java'
+        // Adicione aqui outras tecnologias específicas de chatbot se relevante, ex: 'Dialogflow', 'Rasa'
+      ],
+      ferramentas: [
+        'Git & GitHub',
+        'VS Code',
+        'Vercel' // Se aplicável
+      ],
+      competencias: [
+        'Resolução de Problemas Complexos',
+        'Adaptabilidade Tecnológica (aprendizado rápido de novas stacks)',
+        'Automação de Processos',
+        'Desenvolvimento',
+        'Gerenciamento de Projetos Freelancer (autogerenciamento)',
+        'Comunicação Efetiva',
+        'Pensamento Crítico e Analítico'
+      ]}
     },
     {
       id: 2,
@@ -41,6 +61,7 @@ export default function Experiencias() {
       cargo: 'Transportes | Logística | Análise de Dados',
       periodo: 'Março 2022 – Setembro 2023',
       descricao: [
+        'Gestão logística completa para frota de transporte nas regiões Centro-Norte e Nordeste, incluindo coordenação de operações, negociação de fretes, otimização de rotas e análise de dados. Desenvolvimento de soluções estratégicas com SAP, Qlik e Excel para automação de processos, monitoramento de desempenho e tomada de decisão baseada em dados, resultando em redução de custos e aumento de eficiência operacional.',
         'Gerenciamento de frota de transporte de saída para região centro norte e nordeste abrangendo fábricas e centros de distribuição.',
         'Negociação de fretes com motoristas e transportadoras para diversas rotas.',
         'Desenvolvimento de planos de contingência para abastecimentos de clientes.',
@@ -49,26 +70,22 @@ export default function Experiencias() {
         'Monitoramento da frota para garantir a eficiência operacional e apoio a gestão de transportes.',
         'Criação de relatórios estratégicos no Excel para acompanhamento de indicadores de desempenho.',
         'Utilização de SAP e Qlik para controle de fretes, análise de dados e gestão de pedidos.',
-        'Criação de dashboards interativos (Next.js + Qlik/Power BI) para visualização de indicadores logísticos e financeiros.',
-        'Implementação de soluções RPA (Robotic Process Automation) para integração entre SAP e planilhas Excel.',
-        'Otimização de algoritmos de roteirização utilizando Python e bibliotecas de geolocalização.',
-        'Desenvolvimento de aplicações web personalizadas para gestão de fretes e controle logístico.',
-        'Migração de processos manuais para sistemas automatizados com Node.js e React.',
-        'Análise de grandes volumes de dados logísticos utilizando Pandas e NumPy para identificar oportunidades de redução de custos.',
-        'Configuração de pipelines ETL para consolidar dados de múltiplas fontes (SAP, Excel, APIs de transportadoras).'
+        'Criação de dashboards para visualização de indicadores logísticos e financeiros.',
+        'Implementação de soluções para integração entre SAP e planilhas Excel.',
+        'Otimização de roteirização.',
+        'Análise de grandes volumes de dados logísticos.'
       ],
       conquistas: [
-        'Implementação de nova métrica de precificação de fretes, resultando na redução nos custos logísticos de transporte. (Roteirização)',
-        'Implementação de Plano Safra para mitigar impactos sazonais na região Centro-Oeste, resultando na otimização da gestão de frotas e eficiência no escoamento da produção.',
-        'Redução do tempo de execução de atividades por meio de padronização e automações.',
-        'Otimização de alocação de recursos por meio da melhora da precisão da análise de custos de transportes.',
-        'Padronização de relatórios e análises facilitando a tomada de decisão.'
+      'Implementação de nova métrica de precificação de fretes, resultando na redução nos custos logísticos de transporte. (Roteirização)',
+      'Implementação de Plano Safra para mitigar impactos sazonais na região Centro-Oeste, resultando na otimização da gestão de frotas e eficiência no escoamento da produção, assegurando continuidade operacional e excelência no atendimento aos clientes.',
+      'Redução do tempo de execução de atividades por meio de padronização e automações.',
+      'Otimização de alocação de recursos por meio da melhora da precisão da análise de custos de transportes.',
+      'Padronização de relatórios e análises facilitando a tomada de decisão.',
       ],
       habilidades: {
-        tecnologias: ['Excel Avançado', 'VBA', 'Power Query', 'SQL'],
-        ferramentas: ['SAP MM/SD', 'QlikView', 'Power BI', 'TMS'],
-        competencias: ['Gestão de Transportes', 'Análise de Custos', 'Negociação', 'Planejamento Estratégico']
-      }
+      tecnologias: ['VBA', 'Python'],
+      ferramentas: ['SAP MM/SD', 'Qlik Sense/QlikView','Power BI', 'Excel Avançado(VBA)','Google Maps','Rotas Brasil'],
+      competencias: ['Gestão Logística', 'Análise de Dados', 'Automação de Processos','Resolução de Problemas','Otimização de Rotas','Negociação de Fretes', 'Desenvolvimento de Dashboards','Gestão de Indicadores KPIS', 'Planejamento Estratégico']}
     },
     {
       id: 3,
@@ -76,26 +93,54 @@ export default function Experiencias() {
       cargo: 'Técnico Freelancer | Suporte TI',
       periodo: 'Janeiro 2020 - Presente',
       descricao: [
-        'Manutenção preventiva e corretiva de computadores, notebooks, dispositivos móveis e video-games',
-        'Instalação e configuração de sistemas operacionais (Windows, Linux) e softwares aplicativos.',
-        'Montagem e upgrade de hardware, incluindo substituição de componentes e otimização de desempenho.',
+        'Trabalho técnico de TI em manutenção preventiva de equipamentos eletrônicos (computadores, notebooks e videogames), instalação de sistemas operacionais, upgrades de hardware e configuração de redes domésticas. Atendimento técnico especializado com diagnóstico preciso e soluções personalizadas para otimização de desempenho e prolongamento da vida útil dos equipamentos.',
+        'Manutenção preventiva de computadores, notebooks e video-games',
+        'Instalação e configuração de sistemas operacionais e softwares aplicativos.',
+        'Montagem e upgrade de hardware.',
         'Diagnóstico e solução de problemas de hardware e software.',
-        'Configuração de redes domésticas e pequenas redes empresariais.',
-        'Recuperação de dados e backup de sistemas.',
-        'Atendimento ao cliente para orientação técnica e suporte remoto.'
+        'Configuração de redes domésticas.'
       ],
       conquistas: [
-        'Desenvolvimento de método próprio para diagnóstico rápido de problemas de hardware, reduzindo o tempo de reparo.',
         'Implementação de manutenção preventiva que aumentou a vida útil dos equipamentos.',
-        'Criação de manual de uso para usuários finais, reduzindo chamados recorrentes.',
         'Expansão da carteira de clientes através de indicações.',
-        'Automação de processos de instalação de SO e drivers, reduzindo o tempo de serviço pela metade.',
-        'Implementação de solução de backup em nuvem para clientes.'
+        'Automação de processos de instalação de SO e drivers, reduzindo o tempo de serviço.',
+        'Implementação de solução de backup em nuvem para clientes usando OneDrive e Google Drive.'
       ],
       habilidades: {
-        tecnologias: ['Windows Server', 'Linux', 'Virtualização', 'Redes TCP/IP'],
-        ferramentas: ['Clonezilla', 'GParted', 'CrystalDiskInfo', 'TeamViewer'],
-        competencias: ['Suporte Técnico', 'Diagnóstico de Problemas', 'Atendimento ao Cliente', 'Gestão de TI']
+        tecnologias: [
+          'Windows', 'Linux', 'BIOS/UEFI', 'Redes Wi-Fi', 'TCP/IP'],
+        ferramentas: [
+          'OneDrive', 'Google Drive'
+        ],
+        competencias: [
+          'Suporte técnico', 'Atendimento ao cliente', 'Diagnóstico de problemas', 'Organização', 'Comunicação']
+      }
+    },
+    {
+      id: 4,
+      empresa: 'Aulas Particulares',
+      cargo: 'Matemática | Física | Química | Estátistica',
+      periodo: 'Janeiro 2018 - Presente',
+      descricao: [
+        'Professor particular multidisciplinar com experiência no ensino fundamental e médio. Desenvolvo aulas personalizadas com metodologia adaptativa, utilizando ferramentas digitais para explicar conceitos complexos de forma clara, com foco na resolução prática de exercícios e no desenvolvimento da autonomia do aluno.',
+        'Ministração de aulas particulares presenciais e online para estudantes de ensino fundamental, médio e superior.',
+        'Preparação de material personalizado com base nas necessidades específicas de cada aluno.',
+        'Explicação clara e objetiva de conceitos complexos, com foco em resolução de exercícios e reforço escolar.',
+        'Utilização de ferramentas digitais para aulas remotas, como quadro branco virtual e simuladores.'
+      ],
+      conquistas: [
+        'Aumento significativo no desempenho dos alunos, com média de melhoria de 30% nas notas escolares.',
+        'Criação de uma rede de alunos fiéis através de recomendações e resultados comprovados.',
+        'Adaptação rápida ao modelo de ensino remoto durante a pandemia, mantendo a qualidade do ensino.'
+      ],
+      habilidades: {
+        tecnologias: [
+          'Zoom', 'Google Meet','Khan Academy' ,'YouTube' ],
+        ferramentas: [
+          'PowerPoint', 'Canva', 'Whiteboard.fi', 'Geogebra', 'Calculadora Científica'
+        ],
+        competencias: [
+          'Didática', 'Paciência', 'Empatia', 'Comunicação', 'Organização de conteúdo', 'Autonomia']
       }
     }
   ];
@@ -248,10 +293,6 @@ export default function Experiencias() {
           </div>
 
           <div className={styles.detailFooter}>
-            <Link href="/projetos" className={styles.actionButton}>
-              <i className={`${styles.icon} ${styles.projectsIcon}`}></i>
-              Ver Projetos
-            </Link>
             <Link href="/contatos" className={styles.actionButton}>
               <i className={`${styles.icon} ${styles.contactIcon}`}></i>
               Entrar em Contato

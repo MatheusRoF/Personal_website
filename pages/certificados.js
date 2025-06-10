@@ -244,12 +244,10 @@ export default function Certificados() {
           </div>
 
           <div className={styles.detailFooter}>
-            <button 
-              onClick={closeDetail} 
-              className={styles.actionButton}
-            >
-              Voltar para Certificados
-            </button>
+            <Link href="/projetos" className={styles.actionButton}>
+              <i className={`${styles.icon} ${styles.projectsIcon}`}></i>
+              Ver Projetos
+            </Link>
           </div>
         </div>
       )}

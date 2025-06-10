@@ -46,7 +46,7 @@
 .experienciaCard:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-  border-color: #cbd5e0;
+  border: 1px solid #0a66c2;
 }
 
 .cardHeader {
@@ -87,9 +87,14 @@
   color: #4a5568;
   line-height: 1.6;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  /* Adicione a propriedade padrão */
+  display: -moz-box;
+  display: box;
+  line-clamp: 3;
+  box-orient: vertical;
 }
 
 .tags {
@@ -195,6 +200,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  fill:white;
 }
 
 .responsibilitiesIcon {

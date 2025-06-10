@@ -450,7 +450,7 @@
 }
 
 .closeModalButton {
-  background: rgba(0, 0, 0, 0.400);
+  background: rgba(0, 0, 0, 0);
   color: white;
   border: none;
   border-radius: 50%;
@@ -481,7 +481,7 @@
 }
 
 .navButton {
-  background: rgba(0, 0, 0, 0.400);
+  background: rgba(0, 0, 0, 0.200);
   color: white;
   border: none;
   border-radius: 50%;
@@ -501,7 +501,7 @@
 
 .screenshotCounter {
   color: white;
-  background: rgba(0, 0, 0, 0.400);
+  background: rgba(0, 0, 0, 0.200);
   padding: 1px 5px;
   border-radius: 20px;
   font-size: 14px;
@@ -524,4 +524,15 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  border: 1.5px solid #0a66c2;
+}
+
+.icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  fill:white;
 }
